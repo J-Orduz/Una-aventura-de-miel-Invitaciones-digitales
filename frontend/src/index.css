@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta: Bosque de los Cien Acres */
+  --color-honey: #f5c14f;
+  --color-honey-dark: #d99e28;
+  --color-honey-light: #ffe9b3;
+  --color-cream: #fff8e7;
+  --color-cream-dark: #f4ecd8;
+  --color-sage: #a8c3a0;
+  --color-sage-dark: #7da37a;
+  --color-sage-light: #dce8d8;
+  --color-brown: #8a6240;
+  --color-brown-dark: #6b4c2f;
+  --color-brown-light: #b08d68;
+  --color-blush: #f6c9c9;
+  --color-blush-light: #fde3e0;
+  --color-sky: #b8d8e8;
+  --color-sky-light: #dceef5;
+  --color-warm-white: #fffdf8;
+  --color-pooh-red: #c4553f;
+
+  --font-hand: 'Patrick Hand', cursive;
+  --font-body: 'Quicksand', sans-serif;
+
+  /* Textura de acuarela sutil como fondo */
+  --background-page: radial-gradient(
+      ellipse at 20% 10%,
+      rgba(245, 193, 79, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(ellipse at 85% 30%, rgba(168, 195, 160, 0.12), transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(246, 201, 201, 0.15), transparent 55%),
+    linear-gradient(180deg, #fffdf8 0%, #fff8e7 40%, #fbf3e0 100%);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-brown-dark);
+    background: var(--color-warm-white);
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(245, 193, 79, 0.4);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@layer utilities {
+  .texture-paper {
+    background-color: var(--color-cream);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(245, 193, 79, 0.08), transparent 40%),
+      radial-gradient(circle at 85% 70%, rgba(168, 195, 160, 0.08), transparent 40%),
+      radial-gradient(circle at 60% 10%, rgba(246, 201, 201, 0.08), transparent 35%);
+  }
+
+  .honey-frame {
+    border: 3px solid var(--color-honey);
+    box-shadow:
+      0 0 0 6px var(--color-cream),
+      0 0 0 9px var(--color-honey-dark),
+      0 18px 40px -20px rgba(107, 76, 47, 0.4);
+  }
+
+  .soft-shadow {
+    box-shadow: 0 20px 45px -25px rgba(107, 76, 47, 0.45);
+  }
+
+  .text-honey-shadow {
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.6);
+  }
+}

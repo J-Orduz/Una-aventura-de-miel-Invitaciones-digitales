@@ -1,0 +1,7 @@
+# Copia este archivo como .dev.vars y completa los valores.
+# .dev.vars NUNCA se sube al repositorio (ya está en .gitignore).
+SUPABASE_URL=https://TU-PROYECTO.supabase.co
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+# Orígenes permitidos para CORS, separados por coma (o * para permitir todos).
+ALLOWED_ORIGIN=http://localhost:5173,http://localhost:5199,http://127.0.0.1:5173,http://127.0.0.1:5199
