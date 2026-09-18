@@ -20,34 +20,57 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
       <Flowers className="absolute -right-4 bottom-12 w-28 h-20 opacity-60 rotate-[150deg]" />
 
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-        <motion.div
+        <motion.h1
           variants={riseIn}
           custom={0}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
+          className="font-hand text-4xl sm:text-5xl text-brown-dark tracking-wide"
+        >
+          Una aventura de Miel
+        </motion.h1>
+
+        <motion.div
+          variants={riseIn}
+          custom={0.1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mt-4"
         >
           <img
             src="/img/arriba.png"
             alt=""
-            className="mx-auto w-30 h-40 sm:w-32 sm:h-36 object-contain drop-shadow-md"
+            className="mx-auto h-36 w-auto sm:h-40 object-contain drop-shadow-md"
           />
         </motion.div>
 
         <motion.p
           variants={riseIn}
-          custom={0.15}
+          custom={0.2}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="font-hand text-lg sm:text-xl text-honey-dark mt-4"
+          className="font-hand text-2xl sm:text-3xl text-honey-dark mt-4"
+        >
+          La dulce espera está por terminar
+        </motion.p>
+
+        <motion.p
+          variants={riseIn}
+          custom={0.3}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="font-hand text-lg sm:text-xl text-honey-dark mt-1"
         >
           Una carta para ti
         </motion.p>
 
         <motion.h2
           variants={riseIn}
-          custom={0.25}
+          custom={0.4}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -58,11 +81,11 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
 
         <motion.div
           variants={riseIn}
-          custom={0.35}
+          custom={0.5}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-6 space-y-4 text-base sm:text-lg leading-relaxed font-body text-brown"
+          className="mt-5 space-y-4 text-base sm:text-lg leading-relaxed font-body text-brown"
         >
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
@@ -71,11 +94,11 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
 
         <motion.div
           variants={riseIn}
-          custom={0.5}
+          custom={0.65}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-7 flex items-center gap-3 text-honey-dark"
+          className="mt-6 flex items-center gap-3 text-honey-dark"
         >
           <span className="h-px w-16 bg-honey-dark/40" />
           <span className="font-hand text-2xl">✦</span>

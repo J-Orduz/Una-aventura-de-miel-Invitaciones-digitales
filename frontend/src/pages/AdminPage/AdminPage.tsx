@@ -116,9 +116,6 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
         <Link to="/invitacion/familia-orduz" className="text-sm text-brown/60 underline-offset-4 hover:underline">
           Ver ejemplo de invitación (Familia Orduz)
         </Link>
-        <p className="mt-1 text-xs text-brown/40">
-          Conectado a Supabase · los cambios se guardan en tu base de datos.
-        </p>
       </footer>
     </div>
   )

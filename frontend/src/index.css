@@ -2,23 +2,23 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Paleta: Bosque de los Cien Acres */
-  --color-honey: #f5c14f;
-  --color-honey-dark: #d99e28;
-  --color-honey-light: #ffe9b3;
-  --color-cream: #fff8e7;
-  --color-cream-dark: #f4ecd8;
-  --color-sage: #a8c3a0;
-  --color-sage-dark: #7da37a;
-  --color-sage-light: #dce8d8;
-  --color-brown: #8a6240;
-  --color-brown-dark: #6b4c2f;
-  --color-brown-light: #b08d68;
-  --color-blush: #f6c9c9;
-  --color-blush-light: #fde3e0;
-  --color-sky: #b8d8e8;
-  --color-sky-light: #dceef5;
-  --color-warm-white: #fffdf8;
+  /* Paleta: Baby Blue */
+  --color-honey: #8ec9ef;
+  --color-honey-dark: #4d9fd0;
+  --color-honey-light: #cde9f9;
+  --color-cream: #eef7fd;
+  --color-cream-dark: #e3f0f9;
+  --color-sage: #a2cbdf;
+  --color-sage-dark: #6b9fbd;
+  --color-sage-light: #dcebf6;
+  --color-brown: #7d94a3;
+  --color-brown-dark: #4e6a7d;
+  --color-brown-light: #a0b6c4;
+  --color-blush: #c7e2f4;
+  --color-blush-light: #e6f2fb;
+  --color-sky: #a9d8f2;
+  --color-sky-light: #d8edfa;
+  --color-warm-white: #fbfeff;
   --color-pooh-red: #c4553f;
 
   --font-hand: 'Patrick Hand', cursive;
@@ -27,12 +27,12 @@
   /* Textura de acuarela sutil como fondo */
   --background-page: radial-gradient(
       ellipse at 20% 10%,
-      rgba(245, 193, 79, 0.12),
+      rgba(142, 201, 239, 0.16),
       transparent 55%
     ),
-    radial-gradient(ellipse at 85% 30%, rgba(168, 195, 160, 0.12), transparent 50%),
-    radial-gradient(ellipse at 50% 90%, rgba(246, 201, 201, 0.15), transparent 55%),
-    linear-gradient(180deg, #fffdf8 0%, #fff8e7 40%, #fbf3e0 100%);
+    radial-gradient(ellipse at 85% 30%, rgba(162, 203, 223, 0.14), transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(199, 226, 244, 0.18), transparent 55%),
+    linear-gradient(180deg, #fbfeff 0%, #eef7fd 40%, #e3f0f9 100%);
 }
 
 @layer base {
@@ -51,7 +51,7 @@
   }
 
   ::selection {
-    background: rgba(245, 193, 79, 0.4);
+    background: rgba(142, 201, 239, 0.5);
   }
 }
 
@@ -69,9 +69,9 @@
   .texture-paper {
     background-color: var(--color-cream);
     background-image:
-      radial-gradient(circle at 15% 20%, rgba(245, 193, 79, 0.08), transparent 40%),
-      radial-gradient(circle at 85% 70%, rgba(168, 195, 160, 0.08), transparent 40%),
-      radial-gradient(circle at 60% 10%, rgba(246, 201, 201, 0.08), transparent 35%);
+      radial-gradient(circle at 15% 20%, rgba(142, 201, 239, 0.1), transparent 40%),
+      radial-gradient(circle at 85% 70%, rgba(162, 203, 223, 0.1), transparent 40%),
+      radial-gradient(circle at 60% 10%, rgba(199, 226, 244, 0.12), transparent 35%);
   }
 
   .honey-frame {
@@ -79,11 +79,11 @@
     box-shadow:
       0 0 0 6px var(--color-cream),
       0 0 0 9px var(--color-honey-dark),
-      0 18px 40px -20px rgba(107, 76, 47, 0.4);
+      0 18px 40px -20px rgba(78, 106, 125, 0.4);
   }
 
   .soft-shadow {
-    box-shadow: 0 20px 45px -25px rgba(107, 76, 47, 0.45);
+    box-shadow: 0 20px 45px -25px rgba(78, 106, 125, 0.45);
   }
 
   .text-honey-shadow {

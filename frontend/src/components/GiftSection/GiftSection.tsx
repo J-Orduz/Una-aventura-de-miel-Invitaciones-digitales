@@ -60,7 +60,7 @@ export function GiftSection({ nombre, regalos }: GiftSectionProps) {
           viewport={viewportOnce}
           className="mt-10 text-center font-body text-lg text-brown italic"
         >
-          Tu cariño es el regalo más importante; este detalle es solo para compartir contigo.
+          "Tú creaste mis entrañas; me formaste en el vientre de mi madre” - Salmo 139
         </motion.p>
       </div>
     </section>

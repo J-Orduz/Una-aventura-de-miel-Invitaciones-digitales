@@ -7,7 +7,6 @@ import {
   type MotionValue,
 } from 'framer-motion'
 import { CurtainPanel } from './CurtainPanel'
-import { HoneyPot } from '../decorations/HoneyPot'
 import { Bee } from '../decorations/Bee'
 
 type Stage = 'intro' | 'opening' | 'reveal'
@@ -69,12 +68,16 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
           >
             <Bee className="w-12 h-12 mb-4 drop-shadow-sm animate-[bob_3s_ease-in-out_infinite]" />
 
-            <h1 className="font-hand text-5xl sm:text-6xl text-warm-white tracking-wide leading-tight [text-shadow:0_2px_14px_rgba(90,22,12,0.7)]">
-              Bienvenido a mi
+            <h1 className="font-hand text-5xl sm:text-6xl text-warm-white tracking-wide leading-tight [text-shadow:0_2px_14px_rgba(78,106,125,0.7)]">
+              Bienvenidos a mi
               <span className="block text-honey-light mt-1">Baby Shower</span>
             </h1>
 
-            <HoneyPot className="mt-8 w-20 h-24 sm:w-24 sm:h-28 drop-shadow-lg animate-[bob_4s_ease-in-out_infinite_0.5s]" />
+            <img
+              src="/img/cortina.png"
+              alt=""
+              className="mt-8 h-44 w-auto sm:h-52 drop-shadow-lg animate-[bob_4s_ease-in-out_infinite_0.5s]"
+            />
 
             <motion.p
               style={{ opacity: hintOpacity }}

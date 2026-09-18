@@ -26,10 +26,12 @@ export function EventDetails({ evento }: EventDetailsProps) {
           viewport={viewportOnce}
           className="text-center"
         >
-          <p className="font-hand text-lg sm:text-xl text-honey-dark">Estamos organizando</p>
-          <h2 className="font-hand text-4xl sm:text-5xl text-brown-dark mt-2">
-            {evento.nombre}
-          </h2>
+          <p className="font-hand text-lg sm:text-xl text-honey-dark">Liam llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
+          <img
+            src="/img/mid.png"
+            alt=""
+            className="mx-auto mt-3 w-44 sm:w-52 h-auto object-contain drop-shadow-md"
+          />
         </motion.div>
 
         <div className="mt-12 space-y-5">

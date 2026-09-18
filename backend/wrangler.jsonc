@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "una-aventura-de-miel-api",
+  "name": "una-aventura-de-miel-invitaciones-digitales",
   "main": "src/index.ts",
   "compatibility_date": "2026-09-01",
   "observability": {

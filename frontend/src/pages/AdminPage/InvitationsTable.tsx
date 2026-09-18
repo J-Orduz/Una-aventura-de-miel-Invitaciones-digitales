@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { AlertCircle, CheckCircle2, Clock3, Loader2, Pencil, Plus, Search, Trash2, UserX } from 'lucide-react'
+import { AlertCircle, Check, CheckCircle2, Clock3, Copy, Loader2, Pencil, Plus, Search, Trash2, UserX } from 'lucide-react'
 import { InvitationEditor } from './InvitationEditor'
 import { useAdminInvitations } from './useAdminInvitations'
 import type { Invitation } from '../../types/invitation'
@@ -27,6 +27,17 @@ export function InvitationsTable() {
   const [confirmingDelete, setConfirmingDelete] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [actionError, setActionError] = useState<string | null>(null)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
+
+  async function copyLink(id: string, slug: string) {
+    try {
+      await navigator.clipboard.writeText(`${window.location.origin}/invitacion/${slug}`)
+      setCopiedId(id)
+      window.setTimeout(() => setCopiedId((prev) => (prev === id ? null : prev)), 2000)
+    } catch {
+      setActionError('No pudimos copiar el enlace.')
+    }
+  }
 
   useEffect(() => {
     void load()
@@ -145,6 +156,19 @@ export function InvitationsTable() {
               </div>
 
               <div className="flex items-center gap-2">
+                <button
+                  onClick={() => copyLink(item.id, item.slug)}
+                  className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-body text-sm text-brown hover:bg-honey-light"
+                  title="Copiar enlace de invitación"
+                >
+                  {copiedId === item.id ? (
+                    <Check className="h-4 w-4 text-sage-dark" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                  {copiedId === item.id ? '¡Copiado!' : 'Copiar link'}
+                </button>
+
                 <button
                   onClick={() => openEditor(item.id)}
                   className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-body text-sm text-brown hover:bg-sage-light"
