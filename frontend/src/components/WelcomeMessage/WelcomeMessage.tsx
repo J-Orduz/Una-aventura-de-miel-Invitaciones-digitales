@@ -15,7 +15,7 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
   const paragraphs = mensaje.split('\n')
 
   return (
-    <section className="relative px-6 py-14 sm:px-10 texture-paper overflow-hidden">
+    <section className="relative px-6 pt-6 pb-2 sm:px-10 texture-paper overflow-hidden">
       <Flowers className="absolute -left-6 top-10 w-32 h-24 opacity-70 rotate-[-10deg]" />
       <Flowers className="absolute -right-4 bottom-12 w-28 h-20 opacity-60 rotate-[150deg]" />
 
@@ -85,7 +85,7 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-5 space-y-4 text-base sm:text-lg leading-relaxed font-body text-brown"
+          className="mt-5 space-y-4 text-base sm:text-lg leading-relaxed font-body text-brown-dark"
         >
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
@@ -96,9 +96,9 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
           variants={riseIn}
           custom={0.65}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="mt-6 flex items-center gap-3 text-honey-dark"
+          animate="visible"
+          id="carta-divisor"
+          className="mt-3 flex items-center gap-3 text-honey-dark"
         >
           <span className="h-px w-16 bg-honey-dark/40" />
           <span className="font-hand text-2xl">✦</span>

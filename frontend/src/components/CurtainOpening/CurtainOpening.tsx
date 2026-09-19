@@ -6,6 +6,7 @@ import {
   useMotionValueEvent,
   type MotionValue,
 } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 import { CurtainPanel } from './CurtainPanel'
 import { Bee } from '../decorations/Bee'
 
@@ -29,11 +30,11 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
   const [stage, setStage] = useState<Stage>('intro')
 
   useMotionValueEvent(scrollYProgress, 'change', (progress) => {
-    const next: Stage = progress < 0.32 ? 'intro' : progress < 0.66 ? 'opening' : 'reveal'
+    const next: Stage = progress < 0.32 ? 'intro' : progress < 0.40 ? 'opening' : 'reveal'
     setStage((prev) => (prev === next ? prev : next))
   })
 
-  // Las cortinas permanecen cerradas hasta que el mensaje ya se desvaneció.
+  // Las cortinas comienzan a abrirse y el contenido se muestra desde el inicio de la apertura.
   const curtainLeft = useTransform(scrollYProgress, [0, 0.35, 0.72], [0, 0, -106])
   const curtainRight = useTransform(scrollYProgress, [0, 0.35, 0.72], [0, 0, 106])
 
@@ -42,18 +43,13 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
   const hintOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
 
   return (
-    <section ref={sectionRef} className="relative" style={{ height: '200vh' }}>
+    <section ref={sectionRef} id="cortina-stage" className="relative" style={{ height: '200vh' }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden texture-paper">
-        {/* Contenido revelado (solo en la fase final) */}
-        {stage === 'reveal' && (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="absolute inset-0 z-10 flex items-center justify-center px-6"
-          >
-            {children}
-          </motion.div>
+        {/* Contenido revelado (se muestra apenas empiezan a abrirse las cortinas) */}
+        {stage !== 'intro' && (
+          <div className="absolute inset-0 z-10 flex justify-center items-start px-6">
+            <div className="mx-auto w-full">{children}</div>
+          </div>
         )}
 
         {/* Cortinas */}
@@ -81,11 +77,14 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
 
             <motion.p
               style={{ opacity: hintOpacity }}
-              className="mt-12 font-body font-medium text-warm-white/90 text-sm tracking-[0.2em] uppercase flex items-center gap-2"
+              className="mt-12 font-body font-semibold text-warm-white text-base tracking-[0.15em] uppercase flex flex-col items-center gap-1 [text-shadow:0_1px_10px_rgba(78,106,125,0.6)]"
             >
-              <span className="inline-block w-px h-4 bg-warm-white/60" />
-              Desliza para descubrir la sorpresa
-              <span className="inline-block w-px h-4 bg-warm-white/60" />
+              <span className="flex items-center gap-2">
+                <span className="inline-block w-8 h-px bg-warm-white/60" />
+                Desliza para descubrir la sorpresa
+                <span className="inline-block w-8 h-px bg-warm-white/60" />
+              </span>
+              <ChevronDown className="w-5 h-5 animate-bounce" />
             </motion.p>
           </motion.div>
         )}

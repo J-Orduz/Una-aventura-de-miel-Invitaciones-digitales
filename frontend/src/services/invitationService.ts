@@ -30,7 +30,6 @@ function notConfigured(): never {
 export function toInvitationInput(invitation: Invitation): InvitationInput {
   return {
     nombre: invitation.nombre,
-    slug: invitation.slug,
     mensaje: invitation.mensaje,
     estado: invitation.estado,
     regalos: invitation.regalos.map((gift) => ({

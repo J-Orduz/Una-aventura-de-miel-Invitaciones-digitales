@@ -20,7 +20,6 @@ const emptyGift = (): GiftForm => ({ id: crypto.randomUUID(), nombre: '', descri
 
 export function InvitationEditor({ initial, onSave, onClose }: InvitationEditorProps) {
   const [nombre, setNombre] = useState(initial?.nombre ?? '')
-  const [slug, setSlug] = useState(initial?.slug ?? '')
   const [mensaje, setMensaje] = useState(initial?.mensaje ?? '')
   const [regalos, setRegalos] = useState<GiftForm[]>(
     initial?.regalos.map((g) => ({
@@ -34,11 +33,10 @@ export function InvitationEditor({ initial, onSave, onClose }: InvitationEditorP
   const [error, setError] = useState<string | null>(null)
 
   async function handleSave() {
-    if (!nombre.trim() || !slug.trim() || saving) return
+    if (!nombre.trim() || saving) return
 
     const input: InvitationInput = {
       nombre: nombre.trim(),
-      slug: slug.trim(),
       mensaje: mensaje.trim() || 'Queremos compartir con ustedes un momento muy especial.',
       estado: initial?.estado ?? 'enviada',
       regalos: regalos
@@ -93,18 +91,6 @@ export function InvitationEditor({ initial, onSave, onClose }: InvitationEditorP
               placeholder="Familia Orduz"
               className={inputCls}
             />
-          </Field>
-
-          <Field label="Enlace (slug)">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-brown/60 font-body">/invitacion/</span>
-              <input
-                value={slug}
-                onChange={(e) => setSlug(e.target.value)}
-                placeholder="familia-orduz"
-                className={inputCls}
-              />
-            </div>
           </Field>
 
           <Field label="Mensaje personalizado">
@@ -188,7 +174,7 @@ export function InvitationEditor({ initial, onSave, onClose }: InvitationEditorP
             </button>
             <button
               onClick={handleSave}
-              disabled={!nombre.trim() || !slug.trim() || saving}
+              disabled={!nombre.trim() || saving}
               className="inline-flex items-center gap-2 rounded-full bg-honey px-6 py-2.5 font-hand text-xl text-brown-dark shadow-md hover:bg-honey-dark hover:text-warm-white disabled:opacity-50"
             >
               {saving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}

@@ -87,12 +87,15 @@ export function mapPreview(row: DbInvitation, regalosCount: number): InvitationP
   }
 }
 
-/** Genera un código de invitación legible a partir del slug. */
-export function buildCodigo(slug: string): string {
-  const base = slug
+/** Genera un código de invitación legible y único a partir de un texto base. */
+export function buildCodigo(value: string): string {
+  const clean = value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .toUpperCase()
     .replace(/[^A-Z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
+  const base = clean || 'INVITACION'
   const random = Math.random().toString(36).slice(2, 6).toUpperCase()
   return `${base}-${random}`
 }

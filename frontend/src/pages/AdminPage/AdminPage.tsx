@@ -66,7 +66,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
       <header className="border-b border-brown/10 bg-cream/70 px-6 py-4 backdrop-blur">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <HoneyPot className="w-10 h-12" />
+            <HoneyPot className="w-10 h-12 animate-[bob_3s_ease-in-out_infinite]" />
             <div>
               <p className="font-hand text-2xl text-brown-dark leading-none">Panel de invitaciones</p>
               <p className="text-sm text-brown/70">organizadores · Una Aventura de Miel</p>
@@ -175,7 +175,7 @@ function Login() {
         className="w-full max-w-md rounded-3xl bg-cream soft-shadow p-8"
       >
         <div className="text-center">
-          <HoneyPot className="mx-auto w-20 h-24" />
+          <HoneyPot className="mx-auto w-20 h-24 animate-[bob_4s_ease-in-out_infinite]" />
           <h1 className="mt-4 font-hand text-4xl text-brown-dark">Inicio de sesión</h1>
           <p className="mt-1 text-brown">Panel de organizadores · Una Aventura de Miel</p>
         </div>
@@ -239,7 +239,7 @@ function Login() {
         </form>
 
         <p className="mt-6 rounded-xl bg-warm-white/70 px-4 py-3 text-center font-body text-xs text-brown/60">
-          Acceso con Supabase Auth. Usa la cuenta que creaste en Supabase → Authentication → Users.
+          Usa las credenciales proporcionadas por el ingeniero Juan Orduz para el acceso.
         </p>
       </motion.div>
     </div>

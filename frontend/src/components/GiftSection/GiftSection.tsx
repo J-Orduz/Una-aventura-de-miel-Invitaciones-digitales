@@ -16,7 +16,7 @@ interface GiftSectionProps {
 
 export function GiftSection({ nombre, regalos }: GiftSectionProps) {
   return (
-    <section className="relative px-6 py-24 sm:px-10 texture-paper overflow-hidden">
+    <section className="relative px-6 pt-6 pb-14 sm:px-10 texture-paper overflow-hidden">
       <Bee className="absolute bottom-10 left-4 w-16 h-14 opacity-60" />
 
       <div className="mx-auto max-w-3xl">
@@ -58,7 +58,7 @@ export function GiftSection({ nombre, regalos }: GiftSectionProps) {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-10 text-center font-body text-lg text-brown italic"
+          className="mt-10 text-center font-body text-lg text-brown-dark italic"
         >
           "Tú creaste mis entrañas; me formaste en el vientre de mi madre” - Salmo 139
         </motion.p>

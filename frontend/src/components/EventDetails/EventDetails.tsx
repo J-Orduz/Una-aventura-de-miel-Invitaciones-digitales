@@ -14,7 +14,7 @@ interface EventDetailsProps {
 
 export function EventDetails({ evento }: EventDetailsProps) {
   return (
-    <section className="relative px-6 py-24 sm:px-10 overflow-hidden">
+    <section className="relative px-6 pt-3 pb-6 sm:px-10 overflow-hidden">
       <Balloons className="absolute top-8 right-2 w-36 h-32 opacity-50 rotate-6" />
 
       <div className="mx-auto max-w-3xl">
@@ -26,15 +26,15 @@ export function EventDetails({ evento }: EventDetailsProps) {
           viewport={viewportOnce}
           className="text-center"
         >
-          <p className="font-hand text-lg sm:text-xl text-honey-dark">Liam llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
+          <p className="font-hand text-xl sm:text-2xl font-semibold text-honey-dark">Liam llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
           <img
             src="/img/mid.png"
             alt=""
-            className="mx-auto mt-3 w-44 sm:w-52 h-auto object-contain drop-shadow-md"
+            className="mx-auto mt-0 w-44 sm:w-52 h-auto object-contain drop-shadow-md"
           />
         </motion.div>
 
-        <div className="mt-12 space-y-5">
+        <div className="mt-4 space-y-5">
           {/* Fecha — aparece primero */}
           <DetailRow
             icon={<CalendarDays />}
@@ -67,7 +67,7 @@ export function EventDetails({ evento }: EventDetailsProps) {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="mt-10 rounded-3xl texture-paper soft-shadow px-7 py-8 text-center relative"
+            className="mt-6 rounded-3xl texture-paper soft-shadow px-7 py-5 text-center relative"
           >
             <Heart className="absolute -top-3 left-6 w-6 h-6 text-pooh-red fill-blush" />
             <p className="font-hand text-2xl text-brown-dark leading-relaxed">

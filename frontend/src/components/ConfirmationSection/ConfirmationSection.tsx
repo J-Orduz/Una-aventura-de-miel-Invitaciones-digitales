@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PartyPopper, Loader2, CheckCircle2, AlertCircle, CalendarHeart } from 'lucide-react'
 import { riseIn, scaleIn, viewportOnce } from '../../animations/variants'
-import { HoneyPot } from '../decorations/HoneyPot'
+import { ConfettiBurst } from './ConfettiBurst'
 import { Bees } from '../decorations/Bees'
 import type { LoadingState } from '../../types/invitation'
 
@@ -32,8 +33,10 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
   }
 
   return (
-    <section className="relative px-6 py-24 sm:px-10 overflow-hidden text-center">
+    <section className="relative px-6 pt-10 pb-4 sm:px-10 overflow-hidden text-center">
       <Bees className="absolute inset-x-0 top-8" />
+
+      {state === 'success' && createPortal(<ConfettiBurst />, document.body)}
 
       <div className="mx-auto max-w-2xl">
         <motion.div
@@ -65,7 +68,6 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
               <p className="mt-4 font-hand text-2xl text-honey-dark">
                 Nos vemos en el Bosque de los Cien Acres.
               </p>
-              <HoneyPot className="mx-auto mt-8 w-20 h-24 animate-[bob_4s_ease-in-out_infinite]" />
             </motion.div>
           ) : (
             <motion.div
@@ -92,9 +94,20 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
-                className="mt-5 text-lg sm:text-xl leading-relaxed text-brown"
+                className="mt-5 text-lg sm:text-xl leading-relaxed text-brown-dark"
               >
                 Nos encantaría compartir este día tan especial contigo.
+              </motion.p>
+
+              <motion.p
+                variants={riseIn}
+                custom={0.22}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+                className="mt-4 text-base sm:text-lg text-brown-dark/80"
+              >
+                Para confirmar tu asistencia, presiona el botón de Confirmar asistencia.
               </motion.p>
 
               <motion.button
@@ -147,7 +160,7 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-14 flex items-center justify-center gap-2 text-brown/60"
+          className="mt-6 flex items-center justify-center gap-2 text-brown-dark/80"
         >
           <CalendarHeart className="w-5 h-5" />
           <p className="text-sm uppercase tracking-[0.25em]">Guarda la fecha</p>

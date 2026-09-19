@@ -39,7 +39,7 @@ export interface GiftInput {
 /** Campos editables de una invitación (lo que se envía al backend). */
 export interface InvitationInput {
   nombre: string
-  slug: string
+  slug?: string
   mensaje: string
   estado?: Invitation['estado']
   regalos?: GiftInput[]

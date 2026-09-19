@@ -136,15 +136,17 @@ async function getInvitationById(id: string, ctx: RequestContext): Promise<Respo
 
 async function createInvitation(request: Request, ctx: RequestContext): Promise<Response> {
   const body = await readJson<InvitationInput>(request)
-  if (!body.nombre?.trim() || !body.slug?.trim()) throw new HttpError(400, 'MISSING_FIELDS')
+  if (!body.nombre?.trim()) throw new HttpError(400, 'MISSING_FIELDS')
 
   const db = serviceClient(ctx.env)
-  const slug = slugify(body.slug)
+  // El slug es igual al código: un valor no adivinable que protege la URL.
+  const codigo = buildCodigo(body.nombre)
+  const slug = codigo
 
   const { data: existing, error: existingError } = await db
     .from('invitaciones')
     .select('id')
-    .eq('slug', slug)
+    .or(`slug.eq.${slug},codigo.eq.${codigo}`)
     .maybeSingle()
   if (existingError) throw new HttpError(500, 'DB_ERROR')
   if (existing) throw new HttpError(409, 'SLUG_TAKEN')
@@ -153,7 +155,7 @@ async function createInvitation(request: Request, ctx: RequestContext): Promise<
     .from('invitaciones')
     .insert({
       slug,
-      codigo: buildCodigo(slug),
+      codigo,
       nombre: body.nombre.trim(),
       mensaje: body.mensaje ?? '',
       estado: body.estado ?? 'activa',
