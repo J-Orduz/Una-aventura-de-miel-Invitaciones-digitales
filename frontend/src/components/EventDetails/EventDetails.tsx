@@ -26,7 +26,7 @@ export function EventDetails({ evento }: EventDetailsProps) {
           viewport={viewportOnce}
           className="text-center"
         >
-          <p className="font-hand text-xl sm:text-2xl font-semibold text-honey-dark">Liam llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
+          <p className="font-hand text-xl sm:text-2xl font-semibold text-honey-dark">LIAM MATHEO llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
           <img
             src="/img/mid.png"
             alt=""
@@ -57,7 +57,7 @@ export function EventDetails({ evento }: EventDetailsProps) {
             viewport={viewportOnce}
             className="ml-2 pl-4 border-l-2 border-sage"
           >
-            <p className="text-base sm:text-lg text-brown/80">{evento.direccion}</p>
+            <p className="text-base sm:text-lg font-bold text-brown/80">{evento.direccion}</p>
           </motion.div>
 
           {/* Mensaje de los padres */}

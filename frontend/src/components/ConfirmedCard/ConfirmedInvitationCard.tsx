@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { CalendarDays, CheckCircle2, Clock, Gift, MapPin } from 'lucide-react'
 import { riseIn, scaleIn } from '../../animations/variants'
+import { MapEmbed, buildMapQuery } from '../MapEmbed/MapEmbed'
 import type { EventDetails as EventDetailsData, Gift as GiftData } from '../../types/invitation'
 
 /**
@@ -15,6 +16,8 @@ interface ConfirmedInvitationCardProps {
 }
 
 export function ConfirmedInvitationCard({ nombre, evento, regalos }: ConfirmedInvitationCardProps) {
+  const mapQuery = buildMapQuery(evento.lugar, evento.direccion)
+
   return (
     <section className="px-6 pt-10 pb-6 sm:px-10">
       <motion.article
@@ -40,7 +43,7 @@ export function ConfirmedInvitationCard({ nombre, evento, regalos }: ConfirmedIn
           animate="visible"
           className="font-hand text-5xl text-brown-dark mt-1"
         >
-          Baby Shower
+          Baby Shower de Liam Matheo
         </motion.h1>
 
         <motion.h2
@@ -132,6 +135,18 @@ export function ConfirmedInvitationCard({ nombre, evento, regalos }: ConfirmedIn
                 </li>
               ))}
             </ul>
+          </motion.div>
+        )}
+
+        {mapQuery && (
+          <motion.div
+            variants={riseIn}
+            custom={0.7}
+            initial="hidden"
+            animate="visible"
+            className="mt-5"
+          >
+            <MapEmbed query={mapQuery} />
           </motion.div>
         )}
 

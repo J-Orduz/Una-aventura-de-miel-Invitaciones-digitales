@@ -58,7 +58,7 @@ export function GiftSection({ nombre, regalos }: GiftSectionProps) {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-10 text-center font-body text-lg text-brown-dark italic"
+          className="mt-10 text-center font-body text-xl font-bold text-brown-dark italic"
         >
           "Tú creaste mis entrañas; me formaste en el vientre de mi madre” - Salmo 139
         </motion.p>

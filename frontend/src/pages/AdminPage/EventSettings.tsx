@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { AlertCircle, CalendarDays, Clock, Loader2, MapPin, RotateCcw, Save } from 'lucide-react'
+import { MapEmbed, buildMapQuery } from '../../components/MapEmbed/MapEmbed'
 import type { EventDetails } from '../../types/invitation'
 
 interface EventSettingsProps {
@@ -117,6 +118,15 @@ export function EventSettings({ evento, onSave, onReset }: EventSettingsProps) {
               className={inputCls}
             />
           </Field>
+
+          {buildMapQuery(form.lugar, form.direccion) && (
+            <div>
+              <p className="mb-1.5 font-hand text-xl text-brown">
+                Vista previa del mapa (así lo verán los invitados)
+              </p>
+              <MapEmbed query={buildMapQuery(form.lugar, form.direccion)} />
+            </div>
+          )}
 
           <Field label="Mensaje de los padres">
             <textarea
