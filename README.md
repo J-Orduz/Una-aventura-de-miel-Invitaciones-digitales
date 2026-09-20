@@ -19,8 +19,43 @@ frontend/   Aplicación React (invitación + panel de organizadores)
 ## Funcionalidades
 
 - Invitación por enlace (`/invitacion/:slug`) con apertura de cortina, música de fondo y confirmación de asistencia.
+- Tarjeta compacta para invitados que ya confirmaron, con fecha, hora, lugar, regalos y mapa de ubicación.
 - Panel de administración (`/admin`) con login via Supabase Auth: gestiona invitaciones, regalos y datos del evento.
 - Los datos del evento son globales y se editan una vez desde el panel.
+
+## Vista previa
+
+### Invitación antes de confirmar
+
+| Cortinas | Carta personalizada |
+| --- | --- |
+| ![Cortinas de apertura](docs/img/invitacion-cortinas.png) | ![Carta personalizada](docs/img/invitacion-carta.png) |
+
+| Detalles del evento | Regalos y mensaje |
+| --- | --- |
+| ![Detalles del evento](docs/img/invitacion-detalles.png) | ![Regalos asignados](docs/img/invitacion-regalos.png) |
+
+| Confirmación y agradecimiento |
+| --- |
+| ![Confirmación de asistencia](docs/img/invitacion-confirmar.png) |
+
+### Invitación después de confirmar
+
+Al confirmar, el invitado ve una tarjeta compacta con toda la información y el mapa de ubicación.
+
+| Tarjeta confirmada | Mapa de ubicación |
+| --- | --- |
+| ![Tarjeta de invitación confirmada](docs/img/tarjeta-confirmada.png) | ![Mapa de ubicación](docs/img/tarjeta-mapa.png) |
+
+### Panel de administración
+
+| Invitaciones | Datos del evento |
+| --- | --- |
+| ![Lista de invitaciones](docs/img/admin-lista.png) | ![Datos del evento](docs/img/admin-evento.png) |
+
+| Vista previa del mapa en el panel |
+| --- |
+| ![Vista previa del mapa](docs/img/admin-mapa.png) |
 
 ## Local
 
