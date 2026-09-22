@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Gift } from 'lucide-react'
 import { riseIn, scaleIn, viewportOnce } from '../../animations/variants'
 import { HoneyPot } from '../decorations/HoneyPot'
-import { Bee } from '../decorations/Bee'
+import { NameCloud } from '../decorations/NameCloud'
 import type { Gift as GiftData } from '../../types/invitation'
 
 /**
@@ -17,7 +17,11 @@ interface GiftSectionProps {
 export function GiftSection({ nombre, regalos }: GiftSectionProps) {
   return (
     <section className="relative px-6 pt-6 pb-14 sm:px-10 texture-paper overflow-hidden">
-      <Bee className="absolute bottom-10 left-4 w-16 h-14 opacity-60" />
+      <img
+        src="/img/abeja.png"
+        alt=""
+        className="absolute bottom-10 left-4 w-16 h-14 object-contain opacity-60"
+      />
 
       <div className="mx-auto max-w-3xl">
         <motion.div
@@ -28,8 +32,22 @@ export function GiftSection({ nombre, regalos }: GiftSectionProps) {
           viewport={viewportOnce}
           className="text-center"
         >
-          <p className="font-hand text-lg sm:text-xl text-honey-dark">Un detalle para nuestro pequeño</p>
-          <h2 className="font-hand text-4xl sm:text-5xl text-brown-dark mt-2">{nombre}</h2>
+          <p className="font-hand text-lg sm:text-3xl text-honey-dark">Para la comodidad de nuestro bebé, </p>
+          <p className="font-hand text-lg sm:text-3xl text-honey-dark">Nos encantaría que nos apoyaras con estos detalles</p>
+          <motion.div
+            variants={riseIn}
+            custom={0.1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="mt-10"
+          >
+            <NameCloud>
+              <h2 className="font-hand text-4xl sm:text-5xl text-brown-dark leading-tight break-words">
+                {nombre}
+              </h2>
+            </NameCloud>
+          </motion.div>
         </motion.div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">

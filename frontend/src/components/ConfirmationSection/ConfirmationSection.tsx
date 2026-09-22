@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { PartyPopper, Loader2, CheckCircle2, AlertCircle, CalendarHeart } from 'lucide-react'
 import { riseIn, scaleIn, viewportOnce } from '../../animations/variants'
 import { ConfettiBurst } from './ConfettiBurst'
-import { Bees } from '../decorations/Bees'
+import { NameCloud } from '../decorations/NameCloud'
 import type { LoadingState } from '../../types/invitation'
 
 /**
@@ -34,7 +34,23 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
 
   return (
     <section className="relative px-6 pt-10 pb-4 sm:px-10 overflow-hidden text-center">
-      <Bees className="absolute inset-x-0 top-8" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-8">
+        <img
+          src="/img/abeja.png"
+          alt=""
+          className="absolute left-[12%] w-12 h-10 object-contain opacity-70 animate-[bob_3.5s_ease-in-out_infinite]"
+        />
+        <img
+          src="/img/abeja.png"
+          alt=""
+          className="absolute right-[16%] top-6 w-14 h-12 object-contain opacity-60 animate-[bob_4.5s_ease-in-out_infinite_0.6s]"
+        />
+        <img
+          src="/img/abeja.png"
+          alt=""
+          className="absolute left-[45%] top-2 w-9 h-8 object-contain opacity-50 animate-[bob_3s_ease-in-out_infinite_1.2s]"
+        />
+      </div>
 
       {state === 'success' && createPortal(<ConfettiBurst />, document.body)}
 
@@ -46,11 +62,13 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <img
-            src="/img/abajo.png"
-            alt=""
-            className="mx-auto w-40 h-32 object-contain drop-shadow-md"
-          />
+          <NameCloud className="w-80 sm:w-96" contentClassName="px-10 pb-6 pt-12 sm:px-14 sm:pt-14">
+            <img
+              src="/img/abajo.png"
+              alt=""
+              className="mx-auto w-48 sm:w-56 h-auto object-contain drop-shadow-md"
+            />
+          </NameCloud>
         </motion.div>
 
         <AnimatePresence mode="wait">
@@ -63,8 +81,8 @@ export function ConfirmationSection({ onConfirm }: ConfirmationSectionProps) {
               transition={{ duration: 0.5 }}
               className="mt-10"
             >
-              <CheckCircle2 className="mx-auto w-14 h-14 text-sage-dark" strokeWidth={1.5} />
-              <h3 className="font-hand text-4xl text-brown-dark mt-6">¡Asistencia confirmada!</h3>
+              <CheckCircle2 className="mx-auto w-14 h-14 text-leaf-dark" strokeWidth={1.5} />
+              <h3 className="font-hand text-4xl text-leaf-dark mt-6">¡Asistencia confirmada!</h3>
               <p className="mt-4 font-hand text-2xl text-honey-dark">
                 Nos vemos en el Bosque de los Cien Acres.
               </p>

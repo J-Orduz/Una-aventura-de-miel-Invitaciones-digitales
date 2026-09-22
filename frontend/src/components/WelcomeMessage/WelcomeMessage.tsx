@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { riseIn, viewportOnce } from '../../animations/variants'
 import { Flowers } from '../decorations/Flowers'
+import { NameCloud } from '../decorations/NameCloud'
 
 /**
  * Sección 2: Mensaje personalizado de la invitación.
@@ -39,11 +40,25 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
           viewport={viewportOnce}
           className="mt-4"
         >
-          <img
-            src="/img/arriba.png"
-            alt=""
-            className="mx-auto h-36 w-auto sm:h-40 object-contain drop-shadow-md"
-          />
+          <div className="relative mx-auto w-fit">
+            <img
+              src="/img/arriba.png"
+              alt=""
+              className="mx-auto h-36 w-auto sm:h-40 object-contain drop-shadow-md"
+            />
+            <img
+              src="/img/abeja.png"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute left-0 top-1/2 w-10 -translate-x-23 -translate-y-1/2 -scale-x-100 object-contain drop-shadow-sm motion-safe:animate-[bob_3.5s_ease-in-out_infinite] sm:-translate-x-30 sm:w-12"
+            />
+            <img
+              src="/img/abeja.png"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute right-0 top-1/2 w-10 -translate-y-1/2 translate-x-20 object-contain drop-shadow-sm motion-safe:animate-[bob_4s_ease-in-out_infinite_0.7s] sm:w-12 sm:translate-x-30"
+            />
+          </div>
         </motion.div>
 
         <motion.p
@@ -68,16 +83,20 @@ export function WelcomeMessage({ nombre, mensaje }: WelcomeMessageProps) {
           Una carta para ti
         </motion.p>
 
-        <motion.h2
+        <motion.div
           variants={riseIn}
           custom={0.4}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="font-hand text-4xl sm:text-5xl text-brown-dark mt-1"
+          className="mt-10"
         >
-          {nombre}
-        </motion.h2>
+          <NameCloud>
+            <h2 className="font-hand text-4xl sm:text-5xl text-brown-dark leading-tight break-words">
+              {nombre}
+            </h2>
+          </NameCloud>
+        </motion.div>
 
         <motion.div
           variants={riseIn}

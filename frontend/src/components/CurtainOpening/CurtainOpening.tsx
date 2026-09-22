@@ -8,7 +8,6 @@ import {
 } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { CurtainPanel } from './CurtainPanel'
-import { Bee } from '../decorations/Bee'
 
 type Stage = 'intro' | 'opening' | 'reveal'
 
@@ -42,6 +41,16 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
   const introY = useTransform(scrollYProgress, [0, 0.3], ['0%', '-28%'])
   const hintOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
 
+  // Aviso "sigue bajando": solo visible con cortinas totalmente abiertas
+  // (apertura completa en 0.72) y se desvanece al final del stage, justo
+  // cuando el siguiente mensaje empieza a subir.
+  const continueOpacity = useTransform(
+    scrollYProgress,
+    [0.7, 0.78, 0.92, 0.985],
+    [0, 1, 1, 0],
+  )
+  const continueY = useTransform(scrollYProgress, [0.7, 0.78], [14, 0])
+
   return (
     <section ref={sectionRef} id="cortina-stage" className="relative" style={{ height: '200vh' }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden texture-paper">
@@ -62,7 +71,11 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
             style={{ y: introY, opacity: introOpacity }}
             className="pointer-events-none absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center"
           >
-            <Bee className="w-12 h-12 mb-4 drop-shadow-sm animate-[bob_3s_ease-in-out_infinite]" />
+            <img
+              src="/img/abeja.png"
+              alt=""
+              className="w-12 h-12 mb-4 object-contain drop-shadow-sm animate-[bob_3s_ease-in-out_infinite]"
+            />
 
             <h1 className="font-hand text-5xl sm:text-6xl text-warm-white tracking-wide leading-tight [text-shadow:0_2px_14px_rgba(78,106,125,0.7)]">
               Bienvenidos a mi
@@ -86,6 +99,21 @@ export function CurtainOpening({ children }: { children: ReactNode }) {
               </span>
               <ChevronDown className="w-5 h-5 animate-bounce" />
             </motion.p>
+          </motion.div>
+        )}
+
+        {/* Aviso para seguir bajando: debajo del ✦, solo con cortinas
+            totalmente abiertas. Desaparece al seguir deslizando. */}
+        {stage === 'reveal' && (
+          <motion.div
+            style={{ opacity: continueOpacity, y: continueY }}
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-6 left-0 right-0 z-30 flex justify-center px-6"
+          >
+            <span className="flex flex-col items-center gap-1 rounded-full bg-warm-white/85 px-5 py-2 font-body font-semibold text-brown-dark text-xs tracking-[0.18em] uppercase shadow-md backdrop-blur-sm">
+              Sigue bajando
+              <ChevronDown className="w-4 h-4 animate-bounce text-honey-dark" />
+            </span>
           </motion.div>
         )}
       </div>

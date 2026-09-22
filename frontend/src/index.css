@@ -20,6 +20,9 @@
   --color-sky-light: #d8edfa;
   --color-warm-white: #fbfeff;
   --color-pooh-red: #c4553f;
+  --color-leaf: #63b581;
+  --color-leaf-dark: #3e8e5f;
+  --color-leaf-light: #e4f3e9;
 
   --font-hand: 'Patrick Hand', cursive;
   --font-body: 'Quicksand', sans-serif;
@@ -62,6 +65,35 @@
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Abejas orbitando mid.png manteniéndose verticales. */
+@keyframes bee-orbit-a {
+  from {
+    transform: rotate(0deg) translateX(160px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(160px) rotate(-360deg);
+  }
+}
+
+@keyframes bee-orbit-b {
+  from {
+    transform: rotate(180deg) translateX(160px) rotate(-180deg);
+  }
+  to {
+    transform: rotate(540deg) translateX(160px) rotate(-540deg);
   }
 }
 

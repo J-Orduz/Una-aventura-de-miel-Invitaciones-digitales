@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { CalendarDays, CheckCircle2, Clock, Gift, MapPin } from 'lucide-react'
 import { riseIn, scaleIn } from '../../animations/variants'
 import { MapEmbed, buildMapQuery } from '../MapEmbed/MapEmbed'
+import { BeesOrbit } from '../decorations/BeesOrbit'
 import type { EventDetails as EventDetailsData, Gift as GiftData } from '../../types/invitation'
 
 /**
@@ -63,7 +64,7 @@ export function ConfirmedInvitationCard({ nombre, evento, regalos }: ConfirmedIn
           animate="visible"
           className="mt-4"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-sage-light px-4 py-1.5 text-sm font-semibold text-brown-dark">
+          <span className="inline-flex items-center gap-2 rounded-full bg-leaf-light px-4 py-1.5 text-sm font-semibold text-leaf-dark">
             <CheckCircle2 className="h-4 w-4" />
             ¡Asistencia confirmada!
           </span>
@@ -76,11 +77,13 @@ export function ConfirmedInvitationCard({ nombre, evento, regalos }: ConfirmedIn
           animate="visible"
           className="mt-3"
         >
-          <img
-            src="/img/mid.png"
-            alt=""
-            className="mx-auto w-24 sm:w-28 h-auto object-contain drop-shadow-md"
-          />
+          <BeesOrbit>
+            <img
+              src="/img/mid.png"
+              alt=""
+              className="mx-auto w-24 sm:w-28 h-auto object-contain drop-shadow-md"
+            />
+          </BeesOrbit>
         </motion.div>
 
         <motion.div

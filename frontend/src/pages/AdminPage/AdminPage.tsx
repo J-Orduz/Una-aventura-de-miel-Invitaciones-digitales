@@ -8,7 +8,6 @@ import { useEventConfig } from '../../hooks/useEventConfig'
 import { authService } from '../../services/authService'
 import { isSupabaseConfigured, supabase } from '../../lib/supabase'
 import { HoneyPot } from '../../components/decorations/HoneyPot'
-import { Bees } from '../../components/decorations/Bees'
 
 type Tab = 'invitaciones' | 'evento'
 type AuthStatus = 'checking' | 'authed' | 'guest'
@@ -62,7 +61,23 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
 
   return (
     <div className="min-h-screen texture-paper">
-      <Bees className="absolute inset-x-0 top-0" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0">
+        <img
+          src="/img/abeja.png"
+          alt=""
+          className="absolute left-[12%] w-12 h-10 object-contain opacity-70 animate-[bob_3.5s_ease-in-out_infinite]"
+        />
+        <img
+          src="/img/abeja.png"
+          alt=""
+          className="absolute right-[16%] top-6 w-14 h-12 object-contain opacity-60 animate-[bob_4.5s_ease-in-out_infinite_0.6s]"
+        />
+        <img
+          src="/img/abeja.png"
+          alt=""
+          className="absolute left-[45%] top-2 w-9 h-8 object-contain opacity-50 animate-[bob_3s_ease-in-out_infinite_1.2s]"
+        />
+      </div>
       <header className="border-b border-brown/10 bg-cream/70 px-6 py-4 backdrop-blur">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">

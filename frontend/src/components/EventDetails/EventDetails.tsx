@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { CalendarDays, Clock, MapPin, Heart } from 'lucide-react'
 import { riseIn, viewportOnce } from '../../animations/variants'
 import { Balloons } from '../decorations/Balloons'
+import { BeesOrbit } from '../decorations/BeesOrbit'
 import type { EventDetails as EventDetailsData } from '../../types/invitation'
 
 /**
@@ -27,11 +28,13 @@ export function EventDetails({ evento }: EventDetailsProps) {
           className="text-center"
         >
           <p className="font-hand text-xl sm:text-2xl font-semibold text-honey-dark">LIAM MATHEO llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
-          <img
-            src="/img/mid.png"
-            alt=""
-            className="mx-auto mt-0 w-44 sm:w-52 h-auto object-contain drop-shadow-md"
-          />
+          <BeesOrbit className="mt-0">
+            <img
+              src="/img/mid.png"
+              alt=""
+              className="mx-auto w-44 sm:w-52 h-auto object-contain drop-shadow-md"
+            />
+          </BeesOrbit>
         </motion.div>
 
         <div className="mt-4 space-y-5">

@@ -7,7 +7,8 @@ import { motion } from 'framer-motion'
  * Sin dependencias nuevas: solo framer-motion y colores de la paleta.
  */
 const CONFETTI_COLORS = ['#8ec9ef', '#4d9fd0', '#cde9f9', '#a2cbdf', '#c7e2f4', '#fbfeff', '#7d94a3']
-const BALLOON_COLORS = ['#cde9f9', '#c7e2f4', '#dcebf6', '#a9d8f2', '#e6f2fb']
+// Globos en tonos amarillos miel que combinan con la paleta baby-blue.
+const BALLOON_COLORS = ['#ffe9a8', '#ffd66b', '#f9c74f', '#fceabb', '#f5b942']
 
 interface ConfettiPiece {
   id: number

@@ -2,25 +2,24 @@ interface CloudsProps {
   className?: string
 }
 
-/** Nubes suaves de acuarela. */
+/** Nube decorativa sólida y esponjosa, como las NameCloud. */
 export function Clouds({ className }: CloudsProps) {
   return (
     <svg
-      viewBox="0 0 200 90"
+      viewBox="0 0 200 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
       aria-hidden="true"
+      className={`motion-safe:animate-[float-soft_5s_ease-in-out_infinite] ${className ?? ''}`}
+      style={{ filter: 'drop-shadow(6px 6px 0 rgba(78,106,125,0.12))' }}
     >
-      <g fill="rgba(255,253,248,.9)" stroke="rgba(168,195,160,.35)" strokeWidth="2">
-        <ellipse cx="60" cy="52" rx="42" ry="24" />
-        <ellipse cx="40" cy="40" rx="24" ry="18" />
-        <ellipse cx="82" cy="38" rx="26" ry="20" />
-      </g>
-      <g fill="rgba(255,253,248,.8)" stroke="rgba(184,216,232,.45)" strokeWidth="2">
-        <ellipse cx="150" cy="34" rx="36" ry="20" />
-        <ellipse cx="130" cy="24" rx="20" ry="15" />
-        <ellipse cx="170" cy="22" rx="22" ry="16" />
+      <g fill="#FBFEFF">
+        <rect x="15" y="55" width="170" height="30" rx="15" />
+        <circle cx="45" cy="58" r="22" />
+        <circle cx="75" cy="45" r="28" />
+        <circle cx="110" cy="40" r="32" />
+        <circle cx="145" cy="48" r="26" />
+        <circle cx="168" cy="60" r="18" />
       </g>
     </svg>
   )
