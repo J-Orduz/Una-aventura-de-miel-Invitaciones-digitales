@@ -44,7 +44,7 @@ export function ConfirmedInvitationCard({ nombre, evento, regalos }: ConfirmedIn
           animate="visible"
           className="font-hand text-5xl text-brown-dark mt-1"
         >
-          Baby Shower de Liam Matheo
+          Baby Shower de Liam Samuel
         </motion.h1>
 
         <motion.h2

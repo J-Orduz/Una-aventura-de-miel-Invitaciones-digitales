@@ -27,7 +27,7 @@ export function EventDetails({ evento }: EventDetailsProps) {
           viewport={viewportOnce}
           className="text-center"
         >
-          <p className="font-hand text-xl sm:text-2xl font-semibold text-honey-dark">LIAM MATHEO llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
+          <p className="font-hand text-xl sm:text-2xl font-semibold text-honey-dark">LIAM SAMUEL llegará pronto a casa, ¡Queremos compartir contigo su bienvenida!</p>
           <BeesOrbit className="mt-0">
             <img
               src="/img/mid.png"
